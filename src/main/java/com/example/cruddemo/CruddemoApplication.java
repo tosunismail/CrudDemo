@@ -18,10 +18,29 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(PersonDAO personDAO){
 
 		return runner -> {
-			createPerson(personDAO);
+			//	createPerson(personDAO);
+			createMultiplePerson(personDAO);
 
 		};
 	}
+
+	private void createMultiplePerson(PersonDAO personDAO) {
+
+		//create multiple person
+		System.out.println("Creating 3 person object ...");
+		Person tempPerson1 = new Person("Ali","Yurtseven","aliyurtseven@gmail.com");
+		Person tempPerson2 = new Person("Ahmet","Toprak","ahmettoprak@gmail.com");
+		Person tempPerson3 = new Person("Esra","Eken","esraeken@gmail.com");
+
+		//save the person objects
+		System.out.println("Saving people ...");
+		personDAO.save(tempPerson1);
+		personDAO.save(tempPerson2);
+		personDAO.save(tempPerson3);
+
+	}
+
+
 	private void createPerson(PersonDAO personDAO) {
 
 		//create the person object
@@ -32,7 +51,7 @@ public class CruddemoApplication {
 		System.out.println("Saving the person ...");
 		personDAO.save(tempPerson);
 
-		//display id of the saced person
+		//display id of the saved person
 		System.out.println("Saved person. Generated id: " + tempPerson.getId());
 
 	}
