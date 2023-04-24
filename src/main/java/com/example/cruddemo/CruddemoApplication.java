@@ -28,12 +28,12 @@ public class CruddemoApplication {
 
 			//	readStudent(personDAO);
 
-			//	queryForPeople(personDAO);
+				queryForPeople(personDAO);
 
 			//	queryForPeopleByLastName(personDAO);
 			//	updatePerson(personDAO);
 			//	deletePerson(personDAO);
-			deleteAll(personDAO);
+			//	deleteAll(personDAO);
 		};
 	}
 
@@ -47,7 +47,7 @@ public class CruddemoApplication {
 
 	private void deletePerson(PersonDAO personDAO) {
 		//delete the person
-		int personId=47;
+		int personId=5;
 		log.info("Deleting person id:"+personId);
 		personDAO.delete(personId);
 
