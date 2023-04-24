@@ -41,7 +41,7 @@ public class PersonDAOImpl implements PersonDAO {
 
         //Person is name of JPA Entity the class name. NOT the name of the database table.
         //All JPQL syntax is based on entity name and entity fields
-        //    TypedQuery<Person> theQuery = entityManager.createQuery("FROM Person order by lastName", Person.class);
+        //TypedQuery<Person> theQuery = entityManager.createQuery("FROM Person order by lastName", Person.class);
         TypedQuery<Person> theQuery = entityManager.createQuery("FROM Person", Person.class);
 
         //return query results
@@ -64,7 +64,6 @@ public class PersonDAOImpl implements PersonDAO {
     @Transactional
     public void update(Person thePerson) {
         entityManager.merge(thePerson);
-
     }
 
     @Override
@@ -72,5 +71,13 @@ public class PersonDAOImpl implements PersonDAO {
     public void delete(Integer id) {
         Person thePerson= entityManager.find(Person.class, id);
         entityManager.remove(thePerson);
+    }
+
+    @Override
+    @Transactional
+    public int deleteAll() {
+
+        int numRowsDeleted = entityManager.createQuery("DELETE FROM Person").executeUpdate();
+        return numRowsDeleted;
     }
 }

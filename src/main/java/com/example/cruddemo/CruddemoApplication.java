@@ -32,13 +32,22 @@ public class CruddemoApplication {
 
 			//	queryForPeopleByLastName(personDAO);
 			//	updatePerson(personDAO);
-			deletePerson(personDAO);
+			//	deletePerson(personDAO);
+			deleteAll(personDAO);
 		};
+	}
+
+	private void deleteAll(PersonDAO personDAO) {
+
+		log.info("Deleting all people ...");
+		int numRowsDeleted = personDAO.deleteAll();
+
+		log.info("Deleted row count: "+numRowsDeleted);
 	}
 
 	private void deletePerson(PersonDAO personDAO) {
 		//delete the person
-		int personId=48;
+		int personId=47;
 		log.info("Deleting person id:"+personId);
 		personDAO.delete(personId);
 
