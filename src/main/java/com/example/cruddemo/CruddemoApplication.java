@@ -47,7 +47,7 @@ public class CruddemoApplication {
 
 	private void deletePerson(PersonDAO personDAO) {
 		//delete the person
-		int personId=5;
+		int personId=6;
 		log.info("Deleting person id:"+personId);
 		personDAO.delete(personId);
 
