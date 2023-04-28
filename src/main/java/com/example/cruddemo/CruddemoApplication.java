@@ -26,7 +26,7 @@ public class CruddemoApplication {
 
 			//	createMultiplePerson(personDAO);
 
-			//	readStudent(personDAO);
+			//	readPerson(personDAO);
 
 				queryForPeople(personDAO);
 
@@ -57,7 +57,7 @@ public class CruddemoApplication {
 		//retrive person based on the id: primary key
 
 		int personId = 4;
-		log.info("Getting student with id: " + personId);
+		log.info("Getting person with id: " + personId);
 
 		Person myPerson =personDAO.findById(personId);
 
@@ -87,7 +87,7 @@ public class CruddemoApplication {
 		//get a list of people
 		List<Person> thePeople = personDAO.findAll();
 
-		//display list of students
+		//display list of people
 		for(Person tempPerson : thePeople) {
 			log.info(String.valueOf(tempPerson));
 		}
@@ -95,7 +95,7 @@ public class CruddemoApplication {
 
 	}
 
-	private void readStudent(PersonDAO personDAO) {
+	private void readPerson(PersonDAO personDAO) {
 
 		//create a person
 		log.info("Creating new person object ...");
@@ -119,7 +119,7 @@ public class CruddemoApplication {
 
 		//display person
 
-		log.info("Found the student: " + myPerson);
+		log.info("Found the person: " + myPerson);
 
 
 	}
